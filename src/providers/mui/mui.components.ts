@@ -1,3 +1,4 @@
+import { OverrideMuiLinkComponents } from '@components';
 import { ThemeOptions } from '@mui/material';
 
 export const MuiComponents: ThemeOptions = {
@@ -6,6 +7,7 @@ export const MuiComponents: ThemeOptions = {
       defaultProps: {
         variant: 'contained'
       }
-    }
+    },
+    ...OverrideMuiLinkComponents
   }
 };

@@ -1,16 +1,16 @@
 import { Box, Button, Typography } from '@mui/material';
 import { CounterStore } from '@store';
-import { injector } from '@store/injector/injector.hoc';
 import { InjectedFC } from '@types';
+import { injector } from '@utils';
 import { observer } from 'mobx-react-lite';
-
-const stores = {
-  counter: CounterStore
-};
 
 interface TestViewProps {
   text: string;
 }
+
+const stores = {
+  counter: CounterStore
+};
 
 const TestView: InjectedFC<typeof stores, TestViewProps> = ({ counter, text }) => {
   console.log(counter.count);
