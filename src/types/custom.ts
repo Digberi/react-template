@@ -5,6 +5,7 @@ import { FC, PropsWithChildren } from 'react';
 export type CFC<Props = {}> = FC<PropsWithChildren<Props>>;
 export type InjectedFC<StoresMap, Props = {}> = FC<Props & Stores<StoresMap>>;
 export type InjectedCFC<StoresMap, Props = {}> = CFC<Props & Stores<StoresMap>>;
+export type WithStores<StoresMap, Props = {}> = InjectedFC<StoresMap, Props>;
 
 export enum ColorMode {
   LIGHT = 'light',

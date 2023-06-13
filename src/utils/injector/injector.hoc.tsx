@@ -17,3 +17,5 @@ export const injector =
       return <Component {...props} {...stores} />;
     };
   };
+
+export const withStores = injector;

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import { StoreNotInitializedError } from '@errors';
 import { useStore } from '@providers/store';
 import { RootStore } from '@store';
 import { StoresMap } from '@types';
@@ -13,7 +14,7 @@ export const useInjector = (stores: StoresMap<RootStore>) => {
     return entries.reduce((acc, [keyName, store]) => {
       const key = RootStore.map.get(store);
       if (!key) {
-        throw new Error(`${store.name} is not initialized in ${RootStore.name}`);
+        throw new StoreNotInitializedError(store.name, RootStore.name);
       }
 
       return Object.assign(acc, { [keyName]: rootStore[key] });
