@@ -1,15 +1,33 @@
 import { Box, Button, Typography } from '@mui/material';
-import { useMode } from '@providers/mode';
+import { CounterStore } from '@store';
+import { injector } from '@store/injector/injector.hoc';
+import { InjectedFC } from '@types';
+import { observer } from 'mobx-react-lite';
 
-export const Test = () => {
-  const { mode, toggleMode } = useMode();
+const stores = {
+  counter: CounterStore
+};
+
+interface TestViewProps {
+  text: string;
+}
+
+const TestView: InjectedFC<typeof stores, TestViewProps> = ({ counter, text }) => {
+  console.log(counter.count);
 
   return (
     <Box>
-      <Button color="success" onClick={toggleMode}>
-        Toggle Mode
+      <Typography>{text}</Typography>
+
+      <Typography>{counter.count}</Typography>
+      <Button color="success" onClick={() => counter.increment()}>
+        Increment
       </Button>
-      <Typography>{mode}</Typography>
+      <Button color="error" onClick={() => counter.decrement()}>
+        Decrement
+      </Button>
     </Box>
   );
 };
+
+export const Test = injector(stores)(observer(TestView));

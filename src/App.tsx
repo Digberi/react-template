@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <Sandwich>
       <Layout>
-        <Test />
+        <Test text="Counter" />
       </Layout>
     </Sandwich>
   );
