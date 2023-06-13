@@ -11,7 +11,7 @@ export const ModeProvider: CFC = ({ children }) => {
   const [mode, setMode] = useState<PaletteMode>(prefersDarkMode ? ColorMode.DARK : ColorMode.LIGHT);
   const colorMode = useMemo(
     () => ({
-      toggleColorMode: () => {
+      toggleMode: () => {
         setMode((prevMode: PaletteMode) =>
           prevMode === ColorMode.LIGHT ? ColorMode.DARK : ColorMode.LIGHT
         );

@@ -1,11 +1,15 @@
+import { Box, Button, Typography } from '@mui/material';
 import { useMode } from '@providers/mode';
 
 export const Test = () => {
-  const { mode } = useMode();
+  const { mode, toggleMode } = useMode();
 
   return (
-    <div>
-      <h1>{mode}</h1>
-    </div>
+    <Box>
+      <Button color="success" onClick={toggleMode}>
+        Toggle Mode
+      </Button>
+      <Typography>{mode}</Typography>
+    </Box>
   );
 };

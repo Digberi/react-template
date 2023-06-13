@@ -4,12 +4,12 @@ import { PaletteMode } from '@mui/material';
 import { ColorMode } from '@types';
 
 interface ColorModeContext {
-  toggleColorMode: () => void;
+  toggleMode: () => void;
   mode: PaletteMode;
 }
 
 export const ModeContext = createContext<ColorModeContext>({
-  toggleColorMode: () => {
+  toggleMode: () => {
     return;
   },
   mode: ColorMode.LIGHT
