@@ -58,6 +58,7 @@ module.exports = {
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/require-array-sort-compare": "error",
     "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/ban-types": "warn",
     "no-restricted-imports": "error",
     "@typescript-eslint/no-namespace": "off",
     "import/no-unresolved": "off",

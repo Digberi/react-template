@@ -1,12 +1,10 @@
-import { Sandwich } from "@providers/sandwich"
-
+import { Test } from '@components/test';
+import { Sandwich } from '@providers/sandwich';
 
 export const App = () => {
   return (
     <Sandwich>
-      <h1>Hello World</h1>
+      <Test />
     </Sandwich>
-  )
-}
-
-
+  );
+};

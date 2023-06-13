@@ -1,10 +1,7 @@
-import { CFC } from "@types";
-import { Fragment } from "react";
+import { CFC } from '@types';
 
-export const Sandwich: CFC = ({children}) => {
-  return (
-    <Fragment>
-      {children}
-    </Fragment>
-  )
-}
+import { ModeProvider } from './mode';
+
+export const Sandwich: CFC = ({ children }) => {
+  return <ModeProvider>{children}</ModeProvider>;
+};
