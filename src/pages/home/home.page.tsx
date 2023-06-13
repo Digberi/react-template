@@ -12,7 +12,12 @@ export const HomePage = () => {
     >
       <Typography variant="h1">Home Page</Typography>
       <Test text="Counter" />
-      <TestForm />
+      <TestForm
+        initialValues={{
+          email: '',
+          password: ''
+        }}
+      />
     </Box>
   );
 };

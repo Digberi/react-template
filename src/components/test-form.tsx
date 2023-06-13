@@ -1,5 +1,8 @@
 import { Button, Divider, LinearProgress, styled } from '@mui/material';
-import { Formik, Form, Field, FormikValues, FormikErrors, FormikTouched } from 'formik';
+import { SnackStore } from '@store';
+import { WithStores } from '@types';
+import { getFieldProps, withStores } from '@utils';
+import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-mui';
 import { object, string } from 'yup';
 
@@ -15,30 +18,23 @@ interface Values {
   [FormValues.password]: string;
 }
 
-const getFieldProps = <U extends FormikValues>(
-  errors: FormikErrors<U>,
-  touched: FormikTouched<U>,
-  name: keyof U
-) => {
-  return {
-    name,
-    error: Boolean(errors[name]) && Boolean(touched[name]),
-    helperText: touched[name] && (errors[name] as string)
-  };
-};
-
 const StyledForm = styled(Form)(({ theme }) => ({
   display: 'grid',
   gap: theme.spacing(2)
 }));
 
-export const TestForm = () => {
+interface TestFormProps {
+  initialValues: Values;
+}
+
+const stores = {
+  snack: SnackStore
+};
+
+const TestFormView: WithStores<typeof stores, TestFormProps> = ({ initialValues, snack }) => {
   return (
     <Formik<Values>
-      initialValues={{
-        [FormValues.email]: '',
-        [FormValues.password]: ''
-      }}
+      initialValues={initialValues}
       validationSchema={object({
         [FormValues.email]: string().required().email(),
         [FormValues.password]: string().required()
@@ -46,7 +42,7 @@ export const TestForm = () => {
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           setSubmitting(false);
-          alert(JSON.stringify(values, null, 2));
+          snack.success(JSON.stringify(values, null, 2));
         }, 5000);
       }}
     >
@@ -81,3 +77,5 @@ export const TestForm = () => {
     </Formik>
   );
 };
+
+export const TestForm = withStores(stores)(TestFormView);
