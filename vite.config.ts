@@ -31,6 +31,7 @@ export default defineConfig({
       { find: '@components', replacement: path.resolve(__dirname, 'src/components') },
       { find: '@config', replacement: path.resolve(__dirname, 'src/config') },
       { find: '@errors', replacement: path.resolve(__dirname, 'src/errors') },
+      { find: '@models', replacement: path.resolve(__dirname, 'src/models') },
       { find: '@layout', replacement: path.resolve(__dirname, 'src/layout') },
       { find: '@hooks', replacement: path.resolve(__dirname, 'src/hooks') },
       { find: '@pages', replacement: path.resolve(__dirname, 'src/pages') },
