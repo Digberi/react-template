@@ -12,7 +12,17 @@ export const UserCard: FC<UserCardProps> = ({ user }) => {
     <Card
       sx={{
         minWidth: 275,
-        margin: '1rem'
+        margin: '1rem',
+        position: 'relative',
+        ':after': user.error
+          ? {
+              content: '""',
+              position: 'absolute',
+              inset: 0,
+              backgroundColor: 'error.main',
+              opacity: 0.2
+            }
+          : {}
       }}
     >
       <CardContent>

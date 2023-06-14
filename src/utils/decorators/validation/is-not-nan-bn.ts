@@ -7,7 +7,7 @@ import {
   ValidationOptions
 } from 'class-validator';
 
-@ValidatorConstraint({ name: 'customText', async: false })
+@ValidatorConstraint({ name: 'NumericIsNan', async: false })
 export class IsNotNanBNConstraint implements ValidatorConstraintInterface {
   validate<T>(value: T, args: ValidationArguments) {
     if (BigNumber.isBigNumber(value)) {
@@ -18,8 +18,6 @@ export class IsNotNanBNConstraint implements ValidatorConstraintInterface {
   }
 
   defaultMessage(args: ValidationArguments) {
-    console.log('defaultMessage', { args });
-
     return `Property ${args.property} of ${args.targetName} cannot be converted to a number`;
   }
 }

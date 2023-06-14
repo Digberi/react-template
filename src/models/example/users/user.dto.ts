@@ -4,8 +4,9 @@ import { Transform } from 'class-transformer';
 import { IsEmail, IsString } from 'class-validator';
 
 import { IUser } from './user.interface';
+import { ErrorDto } from '../../error';
 
-export class UserDto implements Omit<IUser, 'amount'> {
+export class UserDto extends ErrorDto implements Omit<IUser, 'amount'> {
   @IsString()
   id: string;
 

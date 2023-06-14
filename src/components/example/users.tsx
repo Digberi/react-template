@@ -23,19 +23,27 @@ export const UsersContainer: WithStores<typeof stores> = ({ users }) => {
         mb: 8
       }}
     >
-      <Grid container spacing={2}>
-        {isLoading ? (
-          <CircularProgress />
-        ) : error ? (
+      {isLoading ? (
+        <CircularProgress />
+      ) : error ? (
+        <>
           <div>{error.message}</div>
-        ) : (
-          data.map(user => (
+          <div>
+            {
+              //@ts-ignore
+              error.cause.message
+            }
+          </div>
+        </>
+      ) : (
+        <Grid container spacing={2}>
+          {data.map(user => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={user.id}>
               <UserCard user={user} />
             </Grid>
-          ))
-        )}
-      </Grid>
+          ))}
+        </Grid>
+      )}
       <Button
         fullWidth
         onClick={() => {

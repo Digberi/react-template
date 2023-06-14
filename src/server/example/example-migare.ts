@@ -30,6 +30,20 @@ export function makeExampleServer() {
 
     seeds(server) {
       server.createList('user', 10);
+
+      //brocken users
+      server.create('user', {
+        name: 'John Doe',
+        username: 'johndoe',
+        email: 'example@mail.com',
+        amount: 'amount'
+      });
+      server.create('user', {
+        name: 'Juan Dela Cruz',
+        username: 'juandelacruz',
+        email: 'juandelacruzmail.com',
+        amount: '1000'
+      });
     },
 
     routes() {
