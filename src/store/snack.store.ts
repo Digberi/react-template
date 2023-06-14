@@ -38,8 +38,6 @@ export class SnackStore {
   }
 
   success(message: SnackbarMessage) {
-    console.log('SnackStore.success', message);
-
     return this._enqueueSnackbar(message, { variant: 'success' });
   }
 

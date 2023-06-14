@@ -9,6 +9,7 @@ export const ModeProvider: CFC = ({ children }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const [mode, setMode] = useState<PaletteMode>(prefersDarkMode ? ColorMode.DARK : ColorMode.LIGHT);
+
   const colorMode = useMemo(
     () => ({
       toggleMode: () => {

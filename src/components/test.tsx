@@ -14,8 +14,6 @@ const stores = {
 };
 
 const TestView: WithStores<typeof stores, TestViewProps> = ({ counter, text, snack }) => {
-  console.log('render');
-
   return (
     <Box>
       <Typography>{text}</Typography>

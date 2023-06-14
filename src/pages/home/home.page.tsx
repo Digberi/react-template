@@ -1,3 +1,4 @@
+import { Users } from '@components/example/users';
 import { Test } from '@components/test';
 import { TestForm } from '@components/test-form';
 import { Box, Typography } from '@mui/material';
@@ -18,6 +19,7 @@ export const HomePage = () => {
           password: ''
         }}
       />
+      <Users />
     </Box>
   );
 };
