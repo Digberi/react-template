@@ -15,10 +15,10 @@ export class RootStore {
   snackStore: SnackStore;
 
   constructor() {
-    this.userStore = new UserStore(this);
+    this.userStore = new UserStore();
 
-    this.counterStore = new CounterStore(this);
-    this.snackStore = new SnackStore(this);
+    this.counterStore = new CounterStore();
+    this.snackStore = new SnackStore();
 
     makeAutoObservable(this);
     for (const [key, value] of Object.entries(this)) {

@@ -1,6 +1,5 @@
 import { UserDto } from '@api';
 import { UserApi } from '@api/example/users/user.api';
-import { RootStore } from '@store';
 import { TrinityFetcherStore } from '@store/trinity-fetcher.store';
 import { makeAutoObservable } from 'mobx';
 
@@ -13,7 +12,7 @@ export class UserStore {
     return this.users.trinity;
   }
 
-  constructor(private readonly rootStore: RootStore) {
+  constructor() {
     makeAutoObservable(this);
   }
 }

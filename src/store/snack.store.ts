@@ -2,8 +2,6 @@ import { NotInitializedError } from '@errors/base/not-initialized.error';
 import { makeAutoObservable } from 'mobx';
 import { EnqueueSnackbar, ProviderContext, SnackbarKey, SnackbarMessage } from 'notistack';
 
-import { RootStore } from './root.store';
-
 export class SnackStore {
   //#region lib
   #context: ProviderContext | null = null;
@@ -29,7 +27,7 @@ export class SnackStore {
   }
   //#endregion
 
-  constructor(private readonly rootStore: RootStore) {
+  constructor() {
     makeAutoObservable(this);
   }
 
