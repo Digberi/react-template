@@ -1,25 +1,18 @@
 import { faker } from '@faker-js/faker';
+import { IUser } from '@models';
 import { createServer, Factory, Model } from 'miragejs';
 import { ModelDefinition } from 'miragejs/-types';
 
-export interface User {
-  id: string;
-  name: string;
-  username: string;
-  email: string;
-  amount: string;
-}
+const UserModel: ModelDefinition<IUser> = Model.extend({});
 
-const UserModel: ModelDefinition<User> = Model.extend({});
-
-export function makeServer() {
+export function makeExampleServer() {
   return createServer({
     models: {
       user: UserModel
     },
 
     factories: {
-      user: Factory.extend<Partial<User>>({
+      user: Factory.extend<Partial<IUser>>({
         get name() {
           return faker.person.fullName();
         },

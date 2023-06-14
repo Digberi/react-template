@@ -1,10 +1,11 @@
-import { User } from '@server';
 import { IsNotNanBN } from '@utils';
 import { BigNumber } from 'bignumber.js';
 import { Transform } from 'class-transformer';
 import { IsEmail, IsString } from 'class-validator';
 
-export class UserDto implements Omit<User, 'amount'> {
+import { IUser } from './user.interface';
+
+export class UserDto implements Omit<IUser, 'amount'> {
   @IsString()
   id: string;
 

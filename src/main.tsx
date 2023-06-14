@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { makeServer } from '@server/mirage';
+import { makeExampleServer } from '@server';
 import ReactDOM from 'react-dom/client';
 
 import { App } from './App';
 import 'reflect-metadata';
-makeServer();
+makeExampleServer();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

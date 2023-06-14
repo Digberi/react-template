@@ -1,5 +1,5 @@
-import { UserDto } from '@api';
 import { UserApi } from '@api/example/users/user.api';
+import { UserDto } from '@models';
 import { TrinityFetcherStore } from '@store/trinity-fetcher.store';
 import { makeAutoObservable } from 'mobx';
 
