@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { makeExampleServer } from '@server';
+import { makeExampleServer } from '@server/example';
 import ReactDOM from 'react-dom/client';
 
 import { App } from './App';

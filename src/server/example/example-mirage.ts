@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { IUser } from '@models';
+import { IUser } from '@models/example';
 import { createServer, Factory, Model } from 'miragejs';
 import { ModelDefinition } from 'miragejs/-types';
 

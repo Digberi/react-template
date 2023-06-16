@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { UserDto } from '@models';
+import { UserDto } from '@models/example';
 import { Card, CardContent, Typography } from '@mui/material';
 
 interface UserCardProps {

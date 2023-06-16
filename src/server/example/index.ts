@@ -1,1 +1,1 @@
-export * from './example-migare';
+export * from './example-mirage';
