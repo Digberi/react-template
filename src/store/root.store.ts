@@ -1,3 +1,4 @@
+import { WagmiStore } from '@store/wagmi.store.ts';
 import { ConstructorOfValues } from '@types';
 import { makeAutoObservable } from 'mobx';
 
@@ -9,18 +10,16 @@ export class RootStore {
   static map: Map<ConstructorOfValues<RootStore>, keyof RootStore> = new Map();
 
   /** @example */
-  userStore: UserStore;
+  userStore = new UserStore();
 
-  counterStore: CounterStore;
-  snackStore: SnackStore;
+  counterStore = new CounterStore();
+  snackStore = new SnackStore();
+
+  wagmiStore = new WagmiStore();
 
   constructor() {
-    this.userStore = new UserStore();
-
-    this.counterStore = new CounterStore();
-    this.snackStore = new SnackStore();
-
     makeAutoObservable(this);
+
     for (const [key, value] of Object.entries(this)) {
       RootStore.map.set(value.constructor.prototype.constructor, key as keyof RootStore);
     }

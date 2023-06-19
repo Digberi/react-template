@@ -1,17 +1,16 @@
 import { Box, Button, Typography } from '@mui/material';
-import { Connector } from '@providers/wagmi/wagmi.provider';
-import { useAccount, useConnect, useDisconnect, useWalletClient } from 'wagmi';
+import { WagmiStore } from '@store/wagmi.store.ts';
+import { WithStores } from '@types';
+import { withStores } from '@utils';
+import { observer } from 'mobx-react-lite';
 
-export const HomePage = () => {
-  const { address } = useAccount();
-  const { connect } = useConnect({
-    connector: Connector
-  });
-  const { disconnect } = useDisconnect();
+const stores = {
+  wagmi: WagmiStore
+};
 
-  const { data: walletClient } = useWalletClient();
-
-  console.log(walletClient);
+const HomePageView: WithStores<typeof stores> = ({ wagmi }) => {
+  console.log('render');
+  console.log(wagmi.chains);
 
   return (
     <Box
@@ -21,17 +20,17 @@ export const HomePage = () => {
       }}
     >
       <Typography variant="h1">Home</Typography>
-      <Typography variant="body1">{address}</Typography>
-      <Button onClick={() => connect()} variant="contained">
+      <Typography variant="body1">{wagmi.account.address}</Typography>
+      <Button onClick={async () => wagmi.connect()} variant="contained">
         Connect
       </Button>
-      <Button onClick={() => disconnect()} variant="contained">
+      <Button onClick={async () => wagmi.disconnect()} variant="contained">
         Disconnect
       </Button>
 
       <Button
         onClick={async () =>
-          walletClient?.signMessage({
+          wagmi.walletClient?.signMessage({
             message: 'Hello World'
           })
         }
@@ -42,3 +41,5 @@ export const HomePage = () => {
     </Box>
   );
 };
+
+export const HomePage = withStores(stores)(observer(HomePageView));
