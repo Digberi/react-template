@@ -6,7 +6,7 @@ import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-mui';
 import { object, string } from 'yup';
 
-import { FieldSet } from './ui';
+import { FieldSet } from '../../ui';
 
 enum FormValues {
   email = 'email',
