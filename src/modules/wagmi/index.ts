@@ -1,2 +1,3 @@
-export * from './wagmi.store.ts';
-export * from './wagmi.config.ts';
+export * from './wagmi.store';
+export * from './wagmi.config';
+export * from './wagmi.types';

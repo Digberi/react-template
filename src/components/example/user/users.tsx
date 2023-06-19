@@ -4,7 +4,7 @@ import { WithStores } from '@types';
 import { withStores } from '@utils';
 import { observer } from 'mobx-react-lite';
 
-import { UserCard } from './user.tsx';
+import { UserCard } from './user';
 
 const stores = {
   users: UserStore
