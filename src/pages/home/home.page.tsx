@@ -1,5 +1,5 @@
+import { WagmiStore } from '@modules/wagmi';
 import { Box, Button, Typography } from '@mui/material';
-import { WagmiStore } from '@store/wagmi.store.ts';
 import { WithStores } from '@types';
 import { withStores } from '@utils';
 import { observer } from 'mobx-react-lite';
@@ -9,9 +9,6 @@ const stores = {
 };
 
 const HomePageView: WithStores<typeof stores> = ({ wagmi }) => {
-  console.log('render');
-  console.log(wagmi.chains);
-
   return (
     <Box
       sx={{

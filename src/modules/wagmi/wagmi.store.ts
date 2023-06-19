@@ -1,5 +1,3 @@
-import { Connector } from '@config';
-import { Account, Network, PClient, WClient } from '@types';
 import type { Chain } from '@wagmi/core';
 import {
   connect,
@@ -14,6 +12,9 @@ import {
   watchWalletClient
 } from '@wagmi/core';
 import { makeAutoObservable } from 'mobx';
+
+import { Connector } from './wagmi.config';
+import { Account, Network, PClient, WClient } from './wagmi.types';
 
 export class WagmiStore {
   account: Account;
@@ -66,8 +67,6 @@ export class WagmiStore {
       unwatchWClient();
 
       this.network = network;
-
-      console.log('network', network);
 
       unwatchPClient = this.initPublicClient(network.chain);
       unwatchWClient = this.initWalletClient(network.chain);

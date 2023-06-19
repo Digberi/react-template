@@ -1,1 +1,1 @@
-export * from './wagmi.config.ts';
+export * from '../modules/wagmi/wagmi.config.ts';

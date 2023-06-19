@@ -1,9 +1,8 @@
-import { WagmiStore } from '@store/wagmi.store.ts';
+import { WagmiStore } from '@modules/wagmi';
 import { ConstructorOfValues } from '@types';
 import { makeAutoObservable } from 'mobx';
 
-import { CounterStore } from './counter.store';
-import { UserStore } from './example';
+import { UserStore, CounterStore } from './example';
 import { SnackStore } from './snack.store';
 
 export class RootStore {
