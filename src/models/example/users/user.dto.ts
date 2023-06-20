@@ -1,10 +1,10 @@
-import { IsNotNanBN } from '@utils';
+import { ErrorDto } from '@models/error';
+import { IsNotNanBN } from '@modules/class-validator';
 import { BigNumber } from 'bignumber.js';
 import { Transform } from 'class-transformer';
 import { IsEmail, IsString } from 'class-validator';
 
 import { IUser } from './user.interface';
-import { ErrorDto } from '../../error';
 
 export class UserDto extends ErrorDto implements Omit<IUser, 'amount'> {
   @IsString()

@@ -1,3 +1,4 @@
+import { ToggleMode } from '@components/example';
 import { WagmiStore } from '@modules/wagmi';
 import { Box, Button, Typography } from '@mui/material';
 import { WithStores } from '@types';
@@ -16,6 +17,8 @@ const HomePageView: WithStores<typeof stores> = ({ wagmi }) => {
         gap: 5
       }}
     >
+      <ToggleMode />
+
       <Typography variant="h1">Home</Typography>
       <Typography variant="body1">{wagmi.account.address}</Typography>
       <Button onClick={async () => wagmi.connect()} variant="contained">

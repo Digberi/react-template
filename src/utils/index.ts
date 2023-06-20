@@ -1,3 +1,2 @@
 export * from './injector';
-export * from './helpers';
-export * from './decorators';
+export * from './get-fields-props';

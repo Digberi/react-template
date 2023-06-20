@@ -1,10 +1,9 @@
-import { Constructor } from '@types';
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
-import { isEmptyArray } from 'formik';
 
 import { getValidationErrorMessage } from './get-validation-error-message';
 import { injectValidationError } from './inject-validation-error';
+import { Constructor } from './types';
 
 const innerValidate = async <T extends object>(dto: T | Array<T>) => {
   if (Array.isArray(dto)) {
@@ -22,12 +21,9 @@ export const createDto = async <Dto extends object>(dto: Constructor<Dto>, candi
   const errors = await innerValidate(dtoInstance);
 
   const uninjectedErrors = injectValidationError(errors);
-
-  if (isEmptyArray(uninjectedErrors)) {
+  if (uninjectedErrors.length === 0) {
     return dtoInstance;
   }
-
-  console.log('uninjectedErrors', uninjectedErrors);
 
   throw new Error('Validation failed!', {
     cause: {

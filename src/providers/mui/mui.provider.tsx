@@ -1,22 +1,26 @@
 import { useMemo } from 'react';
 
+import { ColorModeStore } from '@modules/color-mode';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import { CFC } from '@types';
+import { InjectedCFC } from '@types';
+import { observer } from 'mobx-react-lite';
 
 import { MuiComponents } from './mui.components';
-import { MuiPallettes } from './mui.palettes';
-import { useMode } from '../mode';
+import { MuiPalettes } from './mui.palettes';
+import { withStores } from '../../utils';
 
-export const MuiProvider: CFC = ({ children }) => {
-  const { mode } = useMode();
+const stores = {
+  colorMode: ColorModeStore
+};
 
+const MuiProviderView: InjectedCFC<typeof stores> = ({ children, colorMode }) => {
   const theme = useMemo(
     () =>
       createTheme({
-        palette: MuiPallettes[mode],
+        palette: MuiPalettes[colorMode.mode],
         ...MuiComponents
       }),
-    [mode]
+    [colorMode.mode]
   );
 
   return (
@@ -26,3 +30,5 @@ export const MuiProvider: CFC = ({ children }) => {
     </ThemeProvider>
   );
 };
+
+export const MuiProvider = withStores(stores)(observer(MuiProviderView));

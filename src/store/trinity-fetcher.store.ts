@@ -1,5 +1,5 @@
+import { createDto } from '@modules/class-validator';
 import { Constructor, Trinity } from '@types';
-import { createDto } from '@utils';
 import { action, makeObservable, observable } from 'mobx';
 
 export class TrinityFetcherStore<Model extends object, FetchArgs extends unknown[] = unknown[]> {

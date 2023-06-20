@@ -7,11 +7,6 @@ export type InjectedFC<StoresMap, Props = {}> = FC<Props & Stores<StoresMap>>;
 export type InjectedCFC<StoresMap, Props = {}> = CFC<Props & Stores<StoresMap>>;
 export type WithStores<StoresMap, Props = {}> = InjectedFC<StoresMap, Props>;
 
-export enum ColorMode {
-  LIGHT = 'light',
-  DARK = 'dark'
-}
-
 export type Prettify<T> = {
   [K in keyof T]: T[K] extends string
     ? string
