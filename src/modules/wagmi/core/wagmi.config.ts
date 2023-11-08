@@ -1,11 +1,10 @@
+import { defaultChains } from '@modules/wagmi/config';
 import { InjectedConnector, configureChains, createConfig } from '@wagmi/core';
-import { goerli, polygonMumbai } from 'viem/chains';
 import { publicProvider } from 'wagmi/providers/public';
 
-const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [goerli, polygonMumbai],
-  [publicProvider()]
-);
+const { chains, publicClient, webSocketPublicClient } = configureChains(defaultChains, [
+  publicProvider()
+]);
 
 export const Connector = new InjectedConnector({
   chains

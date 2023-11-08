@@ -1,7 +1,7 @@
 import { Box, Button, CircularProgress, Grid } from '@mui/material';
+import { withStores } from '@store';
 import { UserStore } from '@store/example';
 import { WithStores } from '@types';
-import { withStores } from '@utils';
 import { observer } from 'mobx-react-lite';
 
 import { UserCard } from './user';

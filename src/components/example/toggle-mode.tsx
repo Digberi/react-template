@@ -1,7 +1,7 @@
 import { ColorModeStore } from '@modules/color-mode';
 import { Box, Button, Typography } from '@mui/material';
+import { withStores } from '@store';
 import { WithStores } from '@types';
-import { withStores } from '@utils';
 import { observer } from 'mobx-react-lite';
 
 const stores = {
