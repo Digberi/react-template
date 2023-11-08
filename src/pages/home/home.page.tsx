@@ -1,15 +1,7 @@
-import { ToggleMode } from '@components/example';
-import { WagmiStore } from '@modules/wagmi';
-import { Box, Button, Typography } from '@mui/material';
-import { WithStores } from '@types';
-import { withStores } from '@utils';
-import { observer } from 'mobx-react-lite';
+import { Balances, Connect, ToggleMode } from '@components/example';
+import { Box, Typography } from '@mui/material';
 
-const stores = {
-  wagmi: WagmiStore
-};
-
-const HomePageView: WithStores<typeof stores> = ({ wagmi }) => {
+export const HomePage = () => {
   return (
     <Box
       sx={{
@@ -17,29 +9,10 @@ const HomePageView: WithStores<typeof stores> = ({ wagmi }) => {
         gap: 5
       }}
     >
-      <ToggleMode />
-
       <Typography variant="h1">Home</Typography>
-      <Typography variant="body1">{wagmi.account.address}</Typography>
-      <Button onClick={async () => wagmi.connect()} variant="contained">
-        Connect
-      </Button>
-      <Button onClick={async () => wagmi.disconnect()} variant="contained">
-        Disconnect
-      </Button>
-
-      <Button
-        onClick={async () =>
-          wagmi.walletClient?.signMessage({
-            message: 'Hello World'
-          })
-        }
-        variant="contained"
-      >
-        Sign Message
-      </Button>
+      <ToggleMode />
+      <Balances />
+      <Connect />
     </Box>
   );
 };
-
-export const HomePage = withStores(stores)(observer(HomePageView));

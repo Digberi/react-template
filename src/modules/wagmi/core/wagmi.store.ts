@@ -14,7 +14,7 @@ import {
 import { makeAutoObservable } from 'mobx';
 
 import { Connector } from './wagmi.config';
-import { Account, Network, PClient, WClient } from './wagmi.types';
+import { Account, Network, PClient, WClient } from '../types';
 
 export class WagmiStore {
   account: Account;
@@ -23,6 +23,8 @@ export class WagmiStore {
   network: Network;
 
   get chains() {
+    console.log(this.network.chains);
+
     return this.network.chains;
   }
 
@@ -32,10 +34,19 @@ export class WagmiStore {
     this.init();
   }
 
-  async connect() {
+  async connect(chain?: Chain) {
     await connect({
+      chainId: chain?.id,
       connector: Connector
     });
+  }
+
+  async switchChain(chain: Chain) {
+    if (this.account.isConnected && this.walletClient) {
+      this.walletClient.switchChain(chain);
+    } else {
+      await this.connect(chain);
+    }
   }
 
   async disconnect() {

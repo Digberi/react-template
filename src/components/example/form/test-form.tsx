@@ -1,7 +1,7 @@
 import { Button, Divider, LinearProgress, styled } from '@mui/material';
-import { SnackStore } from '@store';
+import { SnackStore, withStores } from '@store';
 import { WithStores } from '@types';
-import { getFieldProps, withStores } from '@utils';
+import { getFieldProps } from '@utils';
 import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-mui';
 import { object, string } from 'yup';

@@ -1,8 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
-import { SnackStore } from '@store';
+import { SnackStore, withStores } from '@store';
 import { CounterStore } from '@store/example';
 import { WithStores } from '@types';
-import { withStores } from '@utils';
 import { observer } from 'mobx-react-lite';
 
 interface TestViewProps {

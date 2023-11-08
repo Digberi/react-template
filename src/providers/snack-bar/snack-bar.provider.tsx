@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 
-import { SnackStore } from '@store';
+import { SnackStore, withStores } from '@store';
 import { CFC, InjectedCFC } from '@types';
-import { withStores } from '@utils';
 import { SnackbarProvider as NotiSnackbarProvider, useSnackbar } from 'notistack';
 
 const stores = {
